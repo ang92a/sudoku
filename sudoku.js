@@ -1,36 +1,34 @@
-const fs = require('fs')
-const path = require('path')
-
-
+const fs = require('fs');
+const path = require('path');
+const { EOL } = require('os');
 
 function read() {
-  let readFile = fs.readFileSync(path.join(__dirname, './puzzles.txt'), 'utf-8').trim().split('')
-  return readFile
+  const readFile = fs.readFileSync(
+    path.join(__dirname, './puzzles.txt'),
+    'utf-8',
+  );
+  return readFile;
 }
 
-let readFile = read()
-console.log (readFile)
+const readresult = read();
 
-
-function solve(readFile) {
-const array = []
-for(let i = 0; i < readFile; i++){
-array.push(i)
-console.log (array)
-}
-}
-solve()
-function isSolved() {
-  /**
-   * Принимает игровое поле в том формате, в котором его вернули из функции solve.
-   * Возвращает булевое значение — решено это игровое поле или нет.
-   */
+function solve(arr) {
+  return arr.split('').slice(0, 82);
 }
 
-function prettyBoard() {
-  /**
-   * Принимает игровое поле в том формате, в котором его вернули из функции solve.
-   * Выводит в консоль/терминал судоку.
-   * Подумай, как симпатичнее его вывести.
-   */
-}
+console.log(solve(readresult));
+
+// function isSolved() {
+//   /**
+//    * Принимает игровое поле в том формате, в котором его вернули из функции solve.
+//    * Возвращает булевое значение — решено это игровое поле или нет.
+//    */
+// }
+
+// function prettyBoard() {
+//   /**
+//    * Принимает игровое поле в том формате, в котором его вернули из функции solve.
+//    * Выводит в консоль/терминал судоку.
+//    * Подумай, как симпатичнее его вывести.
+//    */
+// }
