@@ -1,22 +1,34 @@
-const fs = require('fs');
-const path = require('path');
-// const { EOL } = require('os');
+
+const fs = require('fs')
+const path = require('path')
+const { EOL } = require('os')
 
 function read() {
-  const readFile = fs.readFileSync(
-    path.join(__dirname, './puzzles.txt'),
-    'utf-8',
-  );
-  return readFile;
+  let readFile = fs.readFileSync(path.join(__dirname, './puzzles.txt'), 'utf-8').trim().split('')
+  return readFile
 }
 
-const readresult = read();
+let file1 = read()
+console.log(file1)
+console.log(file1.length);
 
-function solve(arr) {
-  return arr.split('').slice(0, 82);
+function solve(str) {
+  const resultArray = [];
+
+  for (let i = 0; i < 15; i++) {
+    const subArray = [];
+    for (let j = 0; j < 9; j++) {
+      const innerSubArray = file1.slice(i * 81 + j * 9, i * 81 + (j + 1) * 9);
+      subArray.push(innerSubArray);
+    }
+    resultArray.push(subArray);
+  }
+
+  return resultArray;
 }
 
-console.log(solve(readresult));
+console.log(solve(file1));
+const allArr = solve()
 
 // function isSolved() {
 //   /**
