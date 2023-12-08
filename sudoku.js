@@ -1,17 +1,25 @@
 const fs = require('fs')
 const path = require('path')
+
+
+
 function read() {
-  let readFile = fs.readFileSync(path.join(__dirname, './puzzles.txt'), 'utf-8')
+  let readFile = fs.readFileSync(path.join(__dirname, './puzzles.txt'), 'utf-8').trim().split('')
   return readFile
 }
 
-function solve() {
-  /**
-   * Принимает игровое поле в том формате, в котором его вернули из функции read.
-   * Возвращает игровое поле после попытки его решить.
-   */
-}
+let readFile = read()
+console.log (readFile)
 
+
+function solve(readFile) {
+const array = []
+for(let i = 0; i < readFile; i++){
+array.push(i)
+console.log (array)
+}
+}
+solve()
 function isSolved() {
   /**
    * Принимает игровое поле в том формате, в котором его вернули из функции solve.
