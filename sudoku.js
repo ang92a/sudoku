@@ -1,7 +1,8 @@
+const fs = require('fs')
+const path = require('path')
 function read() {
-  /**
-   * Прочесть файл puzzles.txt в кодировке 'utf-8' и вернуть эти данные из функции
-   */
+  let readFile = fs.readFileSync(path.join(__dirname, './puzzles.txt'), 'utf-8')
+  return readFile
 }
 
 function solve() {
